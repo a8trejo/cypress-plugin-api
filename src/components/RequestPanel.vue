@@ -1,7 +1,7 @@
 <template>
   <div
     data-cy="requestPanel"
-    class="col-span-1" style="display: block !important; visibility: visible !important; opacity: 1 !important;"
+    class="col-span-1 cy-force-visible"
   >
     <Title
       :method="item?.method"
@@ -106,7 +106,7 @@ onMounted(() => {
   // Make sure all CodeBlock components are visible
   setTimeout(() => {
     const panel = document.querySelector('[data-cy="requestPanel"]');
-    if (panel) panel.setAttribute('style', 'display: block !important; visibility: visible !important; opacity: 1 !important;');
+    if (panel) panel.classList.add('cy-force-visible');
   }, 50);
 });
 

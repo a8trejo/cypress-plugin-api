@@ -2,11 +2,11 @@
 <template>
   <div
     v-if="dataFormatted"
-    class="bg-cy-blue-darker" style="display: block !important; visibility: visible !important; opacity: 1 !important;"
+    class="bg-cy-blue-darker cy-force-visible"
     :data-cy="selector"
   >
     <pre
-      class="hljs overflow-scroll no-scrollbar" style="display: block !important; visibility: visible !important; opacity: 1 !important;"
+      class="hljs overflow-scroll no-scrollbar cy-force-visible"
       v-html="dataFormatted" 
     />
   </div>
@@ -29,7 +29,7 @@ onMounted(() => {
   // Make sure the code block is visible
   setTimeout(() => {
     const codeBlocks = document.querySelectorAll('pre.hljs');
-    codeBlocks.forEach(block => block.setAttribute('style', 'display: block !important; visibility: visible !important; opacity: 1 !important;'));
+    codeBlocks.forEach(block => block.classList.add('cy-force-visible'));
   }, 50);
 });
 </script>

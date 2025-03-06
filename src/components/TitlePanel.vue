@@ -1,20 +1,17 @@
 <template>
   <div data-cy="titlePanel">
-    <div class="flex text-cy-gray rounded-sm bg-cy-blue-darkest py-1.5 border-slate-800 border mb-2" 
-         style="display: flex !important; visibility: visible !important; opacity: 1 !important; align-items: center;">
-      <p
+    <div class="flex text-cy-gray rounded-sm bg-cy-blue-darkest py-1.5 border-slate-800 border mb-2 cy-force-visible-flex cy-flex-center">
+     <p
         data-cy="method"
         class="mx-2 rounded-sm font-mono"
-        :class="methodColor(method)"
-        style="display: inline-block !important; visibility: visible !important; opacity: 1 !important;"
+        :class="[methodColor(method), 'cy-force-visible-inline']"
       >
         {{ method }}
       </p>
       <!-- Replace input with span for better visibility -->
       <span
         data-cy="url"
-        class="px-1 inline-block font-mono bg-cy-blue-darkest w-full outline-0 text-cy-gray-light" 
-        style="display: inline-block !important; visibility: visible !important; opacity: 1 !important;"
+        class="px-1 inline-block font-mono bg-cy-blue-darkest w-full outline-0 text-cy-gray-light cy-force-visible-inline"
       >
         {{ url }}
       </span>
@@ -58,7 +55,7 @@ import { getState } from '../utils/getState';
       const urlElements = doc.querySelectorAll('[data-cy="url"]');
       urlElements.forEach(element => {
         // Apply styling using the cy-gray-light color from tailwind config
-        element.setAttribute('style', 'display: inline-block !important; visibility: visible !important; opacity: 1 !important;');
+        element.classList.add('cy-force-visible-inline');
         element.classList.add('text-cy-gray-light');
         
         // Set text content for span element

@@ -188,3 +188,27 @@ details:not([open]) {
     letter-spacing: 5px;
     @apply text-cy-blue-dark block md:hidden -my-6;
 }
+
+/* Utility classes for forcing element visibility in Cypress Cloud */
+.cy-force-visible {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.cy-force-visible-inline {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.cy-force-visible-flex {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Additional utility for flex alignment */
+.cy-flex-center {
+  align-items: center !important;
+}
