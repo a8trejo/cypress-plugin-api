@@ -1,7 +1,7 @@
 <template>
   <div
     data-cy="requestPanel"
-    class="col-span-1"
+    class="col-span-1" style="display: block !important; visibility: visible !important; opacity: 1 !important;"
   >
     <Title
       :method="item?.method"
@@ -97,6 +97,17 @@ defineProps({
   index: {
     type: [Number, String]
   }
-})
+});
+
+// Force the component to be visible when mounted
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  // Make sure all CodeBlock components are visible
+  setTimeout(() => {
+    const panel = document.querySelector('[data-cy="requestPanel"]');
+    if (panel) panel.setAttribute('style', 'display: block !important; visibility: visible !important; opacity: 1 !important;');
+  }, 50);
+});
 
 </script>
