@@ -152,3 +152,17 @@ Come to my upcoming "Testing API with Cypress" workshop. We’ll be using this p
 <p align="center">
 ...powered by coffee and love ❤️  <a href="https://filiphric.com">Filip Hric
 </p>
+
+## Testing Local Changes in Another Repository
+
+You can use [yalc](https://github.com/wclr/yalc) to use your local changes to the package in another repo (for instance `Roo-React`) without needing to publish to NPM. To do this:
+
+1. Install yalc globally with `npm i yalc -g`.
+
+2. Run `npm run yalc:build` in the root of your local `cypress-plugin-api` repository (and do this every time you want to make your latest changes available).
+
+3. Run `yalc link cypress-plugin-api` in the root of your local automation repository (only necessary to do this once).
+
+4. To constantly pull the latest local api plugin changes into your local automation repository, run `yalc update` from the root.
+
+5. If you want to stop using yalc, type `yalc retreat --all` in the root of automation repository. And if you want to start using it again, type `yalc restore --all`.
