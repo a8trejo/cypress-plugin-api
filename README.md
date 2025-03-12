@@ -142,20 +142,11 @@ This will add types for `cy.api()` command, it’s returned values as well as `e
 ### Issues
 All the issues can be found on [issues page](https://github.com/filiphric/cypress-plugin-api/issues), feel free to open any new ones or contribute with your own code.
 
-<!-- ### Want to learn more?
-Come to my upcoming "Testing API with Cypress" workshop. We’ll be using this plugin and learning different ways of testing API.
+### Testing Local Changes in Another Repository
+You can use [yalc](https://github.com/wclr/yalc) to use your local changes as the package in another repository without needing to publish to NPM.
 
-[Register here](https://filiphric.com/cypress-api-testing-workshop)
-
-![Testing API with Cypress workshop](./images/apiWorkshop.png) -->
-<hr>
-<p align="center">
-...powered by coffee and love ❤️  <a href="https://filiphric.com">Filip Hric
-</p>
-
-## Testing Local Changes in Another Repository
-
-You can use [yalc](https://github.com/wclr/yalc) to use your local changes to the package in another repo (for instance `Roo-React`) without needing to publish to NPM. To do this:
+<details>
+<summary>Using yalc</summary>
 
 1. Install yalc globally with `npm i yalc -g`.
 
@@ -166,3 +157,16 @@ You can use [yalc](https://github.com/wclr/yalc) to use your local changes to th
 4. To constantly pull the latest local api plugin changes into your local automation repository, run `yalc update` from the root.
 
 5. If you want to stop using yalc, type `yalc retreat --all` in the root of automation repository. And if you want to start using it again, type `yalc restore --all`.
+
+</details>
+
+<!-- ### Want to learn more?
+Come to my upcoming "Testing API with Cypress" workshop. We’ll be using this plugin and learning different ways of testing API.
+
+[Register here](https://filiphric.com/cypress-api-testing-workshop)
+
+![Testing API with Cypress workshop](./images/apiWorkshop.png) -->
+<hr>
+<p align="center">
+...powered by coffee and love ❤️  <a href="https://filiphric.com">Filip Hric
+</p>
