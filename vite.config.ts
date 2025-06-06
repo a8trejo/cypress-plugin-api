@@ -24,10 +24,11 @@ export default defineConfig({
       },
       plugins: [
         typescript({
-          'tsconfig': resolvePath('./tsconfig.json'),
+          tsconfig: resolvePath('./tsconfig.json'),
           declaration: true,
           declarationDir: resolvePath('./dist'),
-          rootDir: resolvePath('./src')
+          rootDir: resolvePath('./src'),
+          exclude: ['**/*.spec.ts', '**/*.test.ts', 'cypress/**/*']
         })
       ]
     }
