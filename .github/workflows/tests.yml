@@ -1,4 +1,6 @@
 name: e2e-tests
+run-name: ${{ github.event_name == 'pull_request' && format('PR#{0} {1}', github.event.pull_request.number, github.event.pull_request.title) || 'cypress-plugin-api - Test & NPM Publish' }}
+
 on:
   push:
     branches: [main]
@@ -29,7 +31,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Semantic Release
-        if: ${{ env.BASE_BRANCH == 'main' }}
+        if: ${{ github.event_name == 'push' }}
         uses: cycjimmy/semantic-release-action@v3
         id: semantic
         with:
