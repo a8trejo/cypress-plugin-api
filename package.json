@@ -27,8 +27,7 @@
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major",
-    "prepare": "husky"
+    "release:major": "standard-version --release-as major"
   },
   "pre-commit": [
     "lint"
@@ -60,12 +59,10 @@
     "eslint-plugin-vue": "^9.7.0",
     "express": "4.17.1",
     "generate-changelog": "^1.8.0",
-    "husky": "^8.0.3",
-    "lint-staged": "^16.1.0",
+    "husky": "^8.0.2",
     "postcss": "^8.4.17",
     "pre-commit": "^1.2.2",
     "semantic-release": "^19.0.5",
-    "sort-package-json": "^3.2.1",
     "standard-version": "^9.5.0",
     "tailwindcss": "^3.1.8",
     "typescript": "4.5.4",
@@ -73,11 +70,6 @@
   },
   "peerDependencies": {
     "cypress": ">=10"
-  },
-  "lint-staged": {
-    "package.json": [
-        "npx sort-package-json"
-    ]
   },
   "dependencies": {
     "highlight.js": "11.4.0",
