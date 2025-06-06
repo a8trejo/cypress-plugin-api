@@ -155,3 +155,7 @@ export interface RequestProps {
     body: Record<string, any>
   }
 }
+
+export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'HEAD' | 'OPTIONS'
+export type RequestBody = Cypress.RequestBody
+export type RequestOptions = Cypress.RequestOptions
