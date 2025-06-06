@@ -1,7 +1,7 @@
 {
   "author": "Filip Hric (https://filiphric.com/)",
   "license": "ISC",
-  "name": "cypress-plugin-api",
+  "name": "@a8trejo/cypress-plugin-api",
   "version": "2.11.1",
   "keywords": [
     "cypress",
