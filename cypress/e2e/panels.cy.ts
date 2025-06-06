@@ -4,12 +4,12 @@ describe('UI panels', () => {
 
     cy.api('/')
     cy.get('[data-cy=url]')
-      .should('have.value', `${Cypress.config('baseUrl')}/`)
+      .should('have.text', `${Cypress.config('baseUrl')}/`)
 
     cy.api('http://localhost:3003/')
     cy.get('[data-cy=url]')
       .eq(1)
-      .should('have.value', `${Cypress.config('baseUrl')}/`)
+      .should('have.text', `${Cypress.config('baseUrl')}/`)
 
   });
 

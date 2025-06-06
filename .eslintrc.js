@@ -28,6 +28,7 @@ module.exports = {
         }],
         "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/no-namespace": "off",
-        "no-only-tests/no-only-tests": "error"
+        "no-only-tests/no-only-tests": "error",
+        "@typescript-eslint/no-var-requires": "off"
     }
 }
