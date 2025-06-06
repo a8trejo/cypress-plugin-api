@@ -1,8 +1,8 @@
 {
-  "author": "Filip Hric",
+  "author": "Abel Trejo",
   "license": "ISC",
   "name": "@a8trejo/cypress-plugin-api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "keywords": [
     "cypress",
     "api",
