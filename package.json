@@ -1,8 +1,8 @@
 {
-  "author": "Abel Trejo",
+  "author": "Filip Hric",
   "license": "ISC",
   "name": "@a8trejo/cypress-plugin-api",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "keywords": [
     "cypress",
     "api",
@@ -11,9 +11,10 @@
   ],
   "description": "UI for testing API in Cypress",
   "main": "dist/support.js",
-  "types": "dist/types.d.ts",
+  "types": "types.d.ts",
   "files": [
-    "/dist/*"
+    "/dist/*",
+    "types.d.ts"
   ],
   "scripts": {
     "test": "cypress run",
