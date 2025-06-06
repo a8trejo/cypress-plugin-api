@@ -1,11 +1,23 @@
 name: e2e-tests
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, reopened, ready_for_review, synchronize, labeled]
+    branches: [main]
+
+env:
+  BASE_BRANCH: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BASE_BRANCH }}
+          fetch-depth: 0
+
       - name: Cypress run
         uses: cypress-io/github-action@v5
         with:
@@ -13,13 +25,15 @@ jobs:
           build: npm run build
           record: true
         env:
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
       - name: Semantic Release
+        if: ${{ env.BASE_BRANCH == 'main' }}
         uses: cycjimmy/semantic-release-action@v3
         id: semantic
         with:
           branch: main
         env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
