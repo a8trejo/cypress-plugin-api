@@ -1,11 +1,10 @@
 describe('response formats', () => {
 
   it('works with xml', () => {
-
     cy.api('/xml')
 
     // xml tag is formatted
-    cy.contains('xml')
+    cy.get('.token.tag').contains('xml')
       .should('have.css', 'color', 'rgb(100, 112, 243)')
 
   });
@@ -15,7 +14,7 @@ describe('response formats', () => {
     cy.api('/html')
 
     // html tag is formatted
-    cy.contains('html')
+    cy.get('.token.name').contains('html')
       .should('have.css', 'color', 'rgb(255, 87, 112)')
 
   });

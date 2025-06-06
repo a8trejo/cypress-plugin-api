@@ -4,6 +4,7 @@ const { defineConfig } = require('cypress')
 module.exports = defineConfig({
   e2e: {
     morgan: false,
+    watchForFileChanges: false,
     baseUrl: 'http://localhost:3003',
     defaultCommandTimeout: 1000,
     experimentalRunAllSpecs: true,
@@ -16,6 +17,6 @@ module.exports = defineConfig({
 
 async function setupNodeEvents(on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) {
     const isCypressCloud = !!config.env.RECORD_KEY || false
-    config.env.matrixIndex = isCypressCloud
+    config.env.isCypressCloud = isCypressCloud
     return config
 }
