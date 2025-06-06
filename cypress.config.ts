@@ -1,13 +1,21 @@
-import { defineConfig } from 'cypress'
+/// <reference types="cypress" />
+const { defineConfig } = require('cypress')
 
-export default defineConfig({
-  projectId: 'v2x96h',
+module.exports = defineConfig({
   e2e: {
+    morgan: false,
     baseUrl: 'http://localhost:3003',
     defaultCommandTimeout: 1000,
     experimentalRunAllSpecs: true,
     video: process.env.CI ? true : false,
-    videoUploadOnPasses: false,
-    screenshotOnRunFailure: process.env.CI ? true : false
-  },
+    screenshotOnRunFailure: process.env.CI ? true : false,
+    supportFile: 'dist/support.js',
+    setupNodeEvents
+  }
 })
+
+async function setupNodeEvents(on: Cypress.PluginEvents, config: Cypress.PluginConfigOptions) {
+    const isCypressCloud = !!config.env.RECORD_KEY || false
+    config.env.matrixIndex = isCypressCloud
+    return config
+}

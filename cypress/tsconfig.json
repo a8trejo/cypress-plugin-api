@@ -1,4 +1,5 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -9,13 +10,14 @@
       "node",
       "cypress"
     ],
-    "typeRoots": [
-      "./node_modules/@types",
-      "./dist"
-    ],
-    "baseUrl": "./"
+    "strict": true,
+    "allowJs": true,
+    "noEmit": true,
+    "isolatedModules": false,
+    "forceConsistentCasingInFileNames": false
   },
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "support/cypress.d.ts"
   ]
 }
