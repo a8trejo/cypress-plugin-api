@@ -2,7 +2,7 @@
   "author": "Filip Hric",
   "license": "ISC",
   "name": "@a8trejo/cypress-plugin-api",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "keywords": [
     "cypress",
     "api",
@@ -11,16 +11,16 @@
   ],
   "description": "UI for testing API in Cypress",
   "main": "dist/support.js",
-  "types": "types.d.ts",
+  "types": "dist/types.d.ts",
   "files": [
-    "/dist/*",
-    "types.d.ts"
+    "/dist/*"
   ],
   "scripts": {
     "test": "cypress run",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "start": "node ./server",
+    "clean:build": "rm -rf dist && vite build",
     "build": "vite build",
     "build:watch": "vite build --watch",
     "lint": "tsc --noEmit && eslint . --max-warnings=15 --quiet",

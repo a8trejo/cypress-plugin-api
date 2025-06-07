@@ -26,7 +26,6 @@ export default defineConfig({
         typescript({
           tsconfig: resolvePath('./tsconfig.json'),
           declaration: true,
-          declarationDir: resolvePath('./dist'),
           rootDir: resolvePath('./src'),
           exclude: ['**/*.spec.ts', '**/*.test.ts', 'cypress/**/*']
         })
