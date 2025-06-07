@@ -1,39 +1,57 @@
 {
-  "author": "Filip Hric",
-  "license": "ISC",
   "name": "@a8trejo/cypress-plugin-api",
   "version": "1.0.6",
+  "description": "UI for testing API in Cypress",
   "keywords": [
     "cypress",
     "api",
     "testing",
     "plugin"
   ],
-  "description": "UI for testing API in Cypress",
+  "homepage": "https://github.com/a8trejo/cypress-plugin-api#readme",
+  "bugs": {
+    "url": "https://github.com/a8trejo/cypress-plugin-api/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a8trejo/cypress-plugin-api.git"
+  },
+  "license": "ISC",
+  "author": "Filip Hric",
   "main": "dist/support.js",
   "types": "dist/types.d.ts",
   "files": [
     "/dist/*"
   ],
   "scripts": {
-    "test": "cypress run",
-    "cy:open": "cypress open",
-    "cy:run": "cypress run",
-    "start": "node ./server",
-    "clean:build": "rm -rf dist && vite build",
     "build": "vite build",
     "build:watch": "vite build --watch",
+    "clean:build": "rm -rf dist && vite build",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "lint": "tsc --noEmit && eslint . --max-warnings=15 --quiet",
-    "semantic-release": "semantic-release",
+    "prepare": "husky",
+    "prettier:write": "prettier --config .prettierrc 'cypress/**/*.ts' 'cypress-env.ts' --write",
     "release": "standard-version",
+    "release:major": "standard-version --release-as major",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major",
+    "semantic-release": "semantic-release",
+    "start": "node ./server",
+    "test": "cypress run",
     "yalc:build": "npm run build && yalc publish"
   },
   "pre-commit": [
     "lint"
   ],
+  "lint-staged": {
+    "cypress/**/*.{ts,tsx}": [
+      "npm run prettier:write"
+    ],
+    "package.json": [
+      "npx sort-package-json"
+    ]
+  },
   "release": {
     "plugins": [
       "@semantic-release/commit-analyzer",
@@ -42,6 +60,12 @@
       "@semantic-release/github",
       "@semantic-release/npm"
     ]
+  },
+  "dependencies": {
+    "highlight.js": "11.4.0",
+    "prismjs": "^1.29.0",
+    "set-cookie-parser": "^2.5.1",
+    "vue": "^3.2.41"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.2.0",
@@ -61,10 +85,13 @@
     "eslint-plugin-vue": "^9.7.0",
     "express": "4.17.1",
     "generate-changelog": "^1.8.0",
-    "husky": "^8.0.2",
+    "husky": "^9.0.2",
+    "lint-staged": "^16.1.0",
     "postcss": "^8.4.17",
     "pre-commit": "^1.2.2",
+    "prettier": "^3.5.3",
     "semantic-release": "^19.0.5",
+    "sort-package-json": "^2.14.0",
     "standard-version": "^9.5.0",
     "tailwindcss": "^3.1.8",
     "typescript": "4.5.4",
@@ -73,21 +100,7 @@
   "peerDependencies": {
     "cypress": ">=10"
   },
-  "dependencies": {
-    "highlight.js": "11.4.0",
-    "prismjs": "^1.29.0",
-    "set-cookie-parser": "^2.5.1",
-    "vue": "^3.2.41"
-  },
   "publishConfig": {
     "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/a8trejo/cypress-plugin-api.git"
-  },
-  "bugs": {
-    "url": "https://github.com/a8trejo/cypress-plugin-api/issues"
-  },
-  "homepage": "https://github.com/a8trejo/cypress-plugin-api#readme"
+  }
 }
